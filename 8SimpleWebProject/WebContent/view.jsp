@@ -7,6 +7,6 @@
 <title>View</title>
 </head>
 <body>
-View File
+<%= request.getAttribute("staff") %>
 </body>
 </html>
