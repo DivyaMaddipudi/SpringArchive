@@ -5,6 +5,7 @@ public class User {
 	private String name;
 	private String gender;
 	private String country;
+	private String introduction;
 	
 	public String getName() {
 		return name;
@@ -27,6 +28,16 @@ public class User {
 	public void setCountry(String country) {
 		this.country = country;
 	}
+	
+	
+	
+	public String getIntroduction() {
+		return introduction;
+	}
+	public void setIntroduction(String introduction) {
+		this.introduction = introduction;
+	}
+	
 	@Override
 	public String toString() {
 		return "User [name=" + name + ", gender=" + gender + "]";

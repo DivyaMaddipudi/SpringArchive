@@ -22,6 +22,9 @@ Gender: <form:radiobuttons path="gender" items="${genderMap}" />
 Country: <form:select path="country" items="${countryMap}" /> 
 </p>
 
+Introduction: <form:textarea path="introduction"/>
+<p/>
+
 <input type="submit" value="Submit">
 </form:form>
 </body>
