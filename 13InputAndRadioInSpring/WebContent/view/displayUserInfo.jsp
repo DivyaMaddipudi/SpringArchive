@@ -8,6 +8,7 @@
 </head>
 <body>
 Name: ${user.name} <br>
-Gender: ${user.gender}
+Gender: ${user.gender} <br>
+Country: ${user.country}
 </body>
 </html>
