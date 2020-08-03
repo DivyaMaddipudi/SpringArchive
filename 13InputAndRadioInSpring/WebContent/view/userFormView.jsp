@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Welcome</title>
 </head>
 <body>
 <form:form action="displayUserInfo" modelAttribute="user">
@@ -23,6 +23,13 @@ Country: <form:select path="country" items="${countryMap}" />
 </p>
 
 Introduction: <form:textarea path="introduction"/>
+<p/>
+
+Interests : 
+TV Shows: <form:checkbox path="interests" value="TV Shows" />
+Games: <form:checkbox path="interests" value="Games" />
+Reading: <form:checkbox path="interests" value="Reading" />
+
 <p/>
 
 <input type="submit" value="Submit">

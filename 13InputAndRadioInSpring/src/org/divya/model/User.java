@@ -6,6 +6,8 @@ public class User {
 	private String gender;
 	private String country;
 	private String introduction;
+	private String interests[];
+	
 	
 	public String getName() {
 		return name;
@@ -36,6 +38,15 @@ public class User {
 	}
 	public void setIntroduction(String introduction) {
 		this.introduction = introduction;
+	}
+	
+	
+	
+	public String[] getInterests() {
+		return interests;
+	}
+	public void setInterests(String[] interests) {
+		this.interests = interests;
 	}
 	
 	@Override
