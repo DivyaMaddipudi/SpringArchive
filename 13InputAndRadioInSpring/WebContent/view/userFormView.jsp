@@ -14,8 +14,8 @@
 Name: <form:input path="name"/>
 
 <p>
-Gender: Male <form:radiobutton path="gender" value="male"/>
-		Female <form:radiobutton path="gender" value="female"/>
+Gender: <form:radiobuttons path="gender" items="${genderMap}" />
+
 		</p>
 		<input type="submit" value="Submit">
 </form:form>

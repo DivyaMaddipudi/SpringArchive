@@ -7,6 +7,7 @@
 <title>UserInfo</title>
 </head>
 <body>
-${user}
+Name: ${user.name} <br>
+Gender: ${user.gender}
 </body>
 </html>

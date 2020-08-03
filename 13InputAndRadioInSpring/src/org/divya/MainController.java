@@ -2,7 +2,9 @@ package org.divya;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.divya.model.User;
 import org.springframework.stereotype.Controller;
@@ -21,6 +23,11 @@ public class MainController {
 	public ModelAndView home() {
 		ModelAndView modelAndView = new ModelAndView("userFormView");
 		User user = new User();
+		Map<String, String> genderMap = new HashMap<String, String>();
+		genderMap.put("male", "Male");
+		genderMap.put("female", "Female");
+		
+		modelAndView.addObject("genderMap", genderMap);
 		modelAndView.addObject("user", user);
 		return modelAndView;
 	}
@@ -28,7 +35,7 @@ public class MainController {
 	@PostMapping("/displayUserInfo")
 	public ModelAndView displayUserInfo(@ModelAttribute User user) {
 		ModelAndView modelAndView = new ModelAndView("displayUserInfo");
-		System.out.println(user);
+		//System.out.println(user);
 		modelAndView.addObject("user", user);
 		return modelAndView;
 		
