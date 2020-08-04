@@ -14,10 +14,10 @@
 <hr>
 <form:form action="displayUserInfo" modelAttribute="user">
 
-Name: <form:input path="name"/>
+Name: <form:input path="name" required="true" placeholder="Enter name"/>
 
 <p>
-Gender: <form:radiobuttons path="gender" items="${genderMap}" />
+Gender: <form:radiobuttons path="gender" items="${genderMap}" required="true"/>
 
 </p>
 
@@ -25,7 +25,7 @@ Gender: <form:radiobuttons path="gender" items="${genderMap}" />
 Country: <form:select path="country" items="${countryMap}" /> 
 </p>
 
-Introduction: <form:textarea path="introduction"/>
+Introduction: <form:textarea path="introduction" required="true"/>
 <p/>
 
 Interests : 
@@ -34,7 +34,8 @@ Games: <form:checkbox path="interests" value="Games" />
 Reading: <form:checkbox path="interests" value="Reading" />
 
 <p/>
-
+Accept agreement: <form:checkbox path="" value="accept" required="true" />
+<p/>
 <input type="submit" value="Submit">
 </form:form>
 </body>
