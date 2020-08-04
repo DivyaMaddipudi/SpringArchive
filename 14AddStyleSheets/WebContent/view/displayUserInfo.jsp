@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/files/css/style.css" >
 <title>UserInfo</title>
 </head>
 <body>
