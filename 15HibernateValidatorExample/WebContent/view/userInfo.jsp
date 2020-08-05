@@ -17,7 +17,19 @@ Name: <form:input path="name" required="true" placeholder="Enter name"/>
 <p/>
 Gender: <form:radiobuttons items="${genderMap}" path="gender" required="true"/>
 <p/>
+Country: <form:select path="country" items="${countryMap}"/>
+<p/>
 Introduction: <form:textarea path="introduction"/>
+<p/>
+Interests: 
+<p/>
+Games: <form:checkbox path="interests" value="Games"/>
+<p/>
+TV Shows: <form:checkbox path="interests" value="TV Shows"/>
+<p/>
+Reading: <form:checkbox path="interests" value="Reading"/>
+<p/>
+News: <form:checkbox path="interests" value="News"/>
 <p/>
 <input type="submit" value="Submit">
 </form:form>

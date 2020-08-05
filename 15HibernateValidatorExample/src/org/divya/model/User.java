@@ -8,6 +8,8 @@ public class User {
 	private String name;
 	private String gender;
 	private String introduction;
+	private String country;
+	private String[] interests;
 	
 	public String getName() {
 		return name;
@@ -32,6 +34,21 @@ public class User {
 	public void setIntroduction(String introduction) {
 		this.introduction = introduction;
 	}
-	
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public String[] getInterests() {
+		return interests;
+	}
+
+	public void setInterests(String[] interests) {
+		this.interests = interests;
+	}
 
 }
