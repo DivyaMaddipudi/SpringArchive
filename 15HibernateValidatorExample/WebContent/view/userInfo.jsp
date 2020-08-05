@@ -14,6 +14,8 @@
 <hr>
 <form:form action="displayname" modelAttribute="user">
 Name: <form:input path="name" required="true" placeholder="Enter name"/>
+		<p/>
+	  <form:errors path="name" cssStyle="color:red"/>	
 <p/>
 Gender: Male: <form:radiobutton path="gender" value="Male" required="true"/>
 		Female: <form:radiobutton path="gender" value="Female" required="true"/>

@@ -6,6 +6,7 @@ import org.divya.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,7 +27,7 @@ public class MainController {
 	}
 	
 	@PostMapping("displayname")
-	public ModelAndView displayInfo(@Valid User user, BindingResult result) {
+	public ModelAndView displayInfo(@ModelAttribute("user") @Valid User user, BindingResult result) {
 		
 		ModelAndView modelAndView = new ModelAndView("displayInfo");
 		modelAndView.addObject("user", user);
