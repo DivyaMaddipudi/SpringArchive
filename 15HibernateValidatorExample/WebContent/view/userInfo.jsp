@@ -29,6 +29,8 @@ Country: <form:select path="country" >
 <p/>
 Introduction: <form:textarea path="introduction"/>
 <p/>
+  <form:errors path="introduction" cssStyle="color:red"/>	
+<p/>
 Interests: 
 <p/>
 Games: <form:checkbox path="interests" value="Games"/>
