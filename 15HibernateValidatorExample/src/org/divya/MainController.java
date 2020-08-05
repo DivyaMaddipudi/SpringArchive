@@ -18,9 +18,8 @@ import org.springframework.web.servlet.ModelAndView;
 public class MainController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ModelAndView userInfo() {
+	public String userInfo(ModelMap map) {
 		
-		ModelAndView modelAndView = new ModelAndView("userInfo");
 		User user = new User();
 		
 		Map<String, String> genderMap = new HashMap<String, String>();
@@ -33,10 +32,10 @@ public class MainController {
 		countryMap.put("Japan", "Japan");
 		countryMap.put("Russia", "Russia");
 
-		modelAndView.addObject("countryMap", countryMap);
-		modelAndView.addObject("genderMap", genderMap);
-		modelAndView.addObject("user", user);
-		return modelAndView;
+		map.addAttribute("countryMap", countryMap);
+		map.addAttribute("genderMap", genderMap);
+		map.addAttribute("user", user);
+		return "userInfo";
 
 	}
 	
