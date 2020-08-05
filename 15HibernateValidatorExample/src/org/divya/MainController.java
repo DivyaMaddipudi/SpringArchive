@@ -1,8 +1,5 @@
 package org.divya;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.validation.Valid;
 
 import org.divya.model.User;
@@ -18,24 +15,13 @@ import org.springframework.web.servlet.ModelAndView;
 public class MainController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String userInfo(ModelMap map) {
+	public ModelAndView userInfo() {
 		
+		ModelAndView modelAndView = new ModelAndView("userInfo");
 		User user = new User();
 		
-		Map<String, String> genderMap = new HashMap<String, String>();
-		genderMap.put("male", "Male");
-		genderMap.put("female", "Female");
-		
-		Map<String, String> countryMap = new HashMap<String, String>();
-		countryMap.put("India", "India");
-		countryMap.put("USA", "The United States");
-		countryMap.put("Japan", "Japan");
-		countryMap.put("Russia", "Russia");
-
-		map.addAttribute("countryMap", countryMap);
-		map.addAttribute("genderMap", genderMap);
-		map.addAttribute("user", user);
-		return "userInfo";
+		modelAndView.addObject("user", user);
+		return modelAndView;
 
 	}
 	
@@ -46,19 +32,7 @@ public class MainController {
 		modelAndView.addObject("user", user);
 		if(result.hasErrors()) {
 			ModelAndView repopulateModelAndView = new ModelAndView("userInfo");
-
-			Map<String, String> genderMap = new HashMap<String, String>();
-			genderMap.put("male", "Male");
-			genderMap.put("female", "Female");
 			
-			Map<String, String> countryMap = new HashMap<String, String>();
-			countryMap.put("India", "India");
-			countryMap.put("USA", "The United States");
-			countryMap.put("Japan", "Japan");
-			countryMap.put("Russia", "Russia");
-			
-			repopulateModelAndView.addObject("countryMap", countryMap);
-			repopulateModelAndView.addObject("genderMap", genderMap);
 			repopulateModelAndView.addObject("user", user);
 			System.out.println("Has errors!");
 			return repopulateModelAndView;

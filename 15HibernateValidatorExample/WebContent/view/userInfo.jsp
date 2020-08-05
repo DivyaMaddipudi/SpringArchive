@@ -15,9 +15,15 @@
 <form:form action="displayname" modelAttribute="user">
 Name: <form:input path="name" required="true" placeholder="Enter name"/>
 <p/>
-Gender: <form:radiobuttons items="${genderMap}" path="gender" required="true"/>
+Gender: Male: <form:radiobutton path="gender" value="Male" required="true"/>
+		Female: <form:radiobutton path="gender" value="Female" required="true"/>
 <p/>
-Country: <form:select path="country" items="${countryMap}"/>
+Country: <form:select path="country" >
+		<form:option value="India"></form:option>
+		<form:option value="USA" label="The United States"></form:option>
+		<form:option value="Japan"></form:option>
+		<form:option value="Russia"></form:option>
+</form:select>
 <p/>
 Introduction: <form:textarea path="introduction"/>
 <p/>
