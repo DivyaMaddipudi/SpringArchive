@@ -1,12 +1,24 @@
 package org.divya.model;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
+
 public class User {
 
 	private int userID;
+	
+	@Size(min = 5, max = 10, message = "Enter the name between 5 to 10 characters")
 	private String name;
+
+	@Email
 	private String email;
 	
 	
+	
+	public User() {
+		
+	}
+
 	public User(int userID, String name, String email) {
 		
 		this.userID = userID;

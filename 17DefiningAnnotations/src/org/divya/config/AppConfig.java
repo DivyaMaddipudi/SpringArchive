@@ -14,7 +14,7 @@ public class AppConfig {
 	public DataSource getDataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/springdb");
+		dataSource.setUrl("jdbc:mysql://localhost:3306/springdb?useSSL=false");
 		dataSource.setUsername("student");
 		dataSource.setPassword("student");
 		

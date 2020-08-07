@@ -3,12 +3,16 @@ package org.divya.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.divya.DAO.AppDAOImpl;
 import org.divya.config.AppConfig;
 import org.divya.model.User;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -30,7 +34,28 @@ public class AppController {
 		
 		context.close();
 		return model;
+	}
+	
+	@RequestMapping("/addUser")
+	public String addUser(Model model, @Valid User user, BindingResult result) {
 		
 		
+		if(result.hasErrors()) {
+			model.addAttribute("user", user);
+			return "addUser";
+			
+		} else {
+			if(user.getName() != null & user.getEmail() != null) {
+				AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+				
+				AppDAOImpl DAO = context.getBean("DAOBean", AppDAOImpl.class);
+				
+				DAO.addUser(user);
+				context.close();
+				return "forward:/";	
+			} else {
+				return "addUser";
+			}
+		}	
 	}
 }
