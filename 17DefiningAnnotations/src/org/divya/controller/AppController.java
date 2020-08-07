@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.divya.DAO.AppDAOImpl;
+import org.divya.config.AppConfig;
 import org.divya.model.User;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +22,7 @@ public class AppController {
 		
 		ModelAndView model = new ModelAndView("index");
 		List<User> users = new ArrayList<User>();
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("/org/divya/DAO/Spring-AppDAOConfig.xml");
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 		
 		AppDAOImpl DAO = context.getBean("DAOBean", AppDAOImpl.class);
 		users = DAO.listUsers();
