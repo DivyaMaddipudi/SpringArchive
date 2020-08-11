@@ -27,16 +27,16 @@ public class Brands {
 	}
 	
 	@PUT
-	@Path("/brands/{brandId}")
+	@Path("/brands/{brandName}/{brandId}")
 	@Produces(MediaType.TEXT_PLAIN)
-	public String putBrands(@PathParam("brandId") int brandId) {
-		return "Update a brand info with ID " + brandId;
+	public String putBrands(@PathParam("brandName") String brandName, @PathParam("brandId") String brandId) {
+		return "Update a brand info with name & ID " + brandName +" "+brandId;
 	}
 	
 	@DELETE
 	@Path("/brands/{brandId}")
 	@Produces(MediaType.TEXT_PLAIN)
-	public String deleteBrands(@PathParam("brandId") int brandId) {
+	public String deleteBrands(@PathParam("brandId") String brandId) {
 		return "Delete a brand from db with ID " + brandId;
 	}
 
