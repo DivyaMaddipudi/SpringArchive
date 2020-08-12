@@ -37,7 +37,8 @@ public class BrandsDAO {
 		session.beginTransaction();
 		int id = updatedBrand.getBrandId();
 		BrandEntity brand = session.get(BrandEntity.class, id);
-		brand = updatedBrand;
+		//brand = updatedBrand;
+		brand.setBrandName(updatedBrand.getBrandName());
 		session.getTransaction().commit();
 	}
 
@@ -45,7 +46,8 @@ public class BrandsDAO {
 		
 		Session session = factory.getCurrentSession();
 		session.beginTransaction();
-		BrandEntity breand = session.get(BrandEntity.class, brandId);
+		BrandEntity brand = session.get(BrandEntity.class, brandId);
+		session.delete(brand);
 		session.getTransaction().commit();
 	}
 
