@@ -2,28 +2,31 @@ package org.divya.showroom.services;
 
 import java.util.List;
 
+import org.divya.showroom.hibernate.DAO.BrandsDAO;
 import org.divya.showroom.hibernate.entity.BrandEntity;
-import org.divya.showroom.resources.Brands;
+
 
 public class BrandsService {
+	
+	BrandsDAO DAO = new BrandsDAO();
 
-	public List<Brands> getBrands() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<BrandEntity> getBrands() {
+		List<BrandEntity> list = DAO.getBrands();
+		return list;
 	}
 
 	public void addBrand(BrandEntity brand) {
-		// TODO Auto-generated method stub
+		DAO.addBrand(brand);
 		
 	}
 
 	public void updateBrand(BrandEntity updatedBrand) {
-		// TODO Auto-generated method stub
+		DAO.updateBrand(updatedBrand);
 		
 	}
 
-	public void deleteBrand() {
-		// TODO Auto-generated method stub
+	public void deleteBrand(int brandId) {
+		DAO.deleteBrand(brandId);
 		
 	}
 

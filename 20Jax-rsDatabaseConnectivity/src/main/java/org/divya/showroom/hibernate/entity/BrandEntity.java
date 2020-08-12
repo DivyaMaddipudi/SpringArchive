@@ -1,8 +1,19 @@
 package org.divya.showroom.hibernate.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity(name="brands")
+@Table(name="brands")
 public class BrandEntity {
 	
+	@Id
+	@Column(name = "brandId")
 	private int brandId;
+	
+	@Column(name = "brandName")
 	private String brandName;
 	
 	public BrandEntity() {

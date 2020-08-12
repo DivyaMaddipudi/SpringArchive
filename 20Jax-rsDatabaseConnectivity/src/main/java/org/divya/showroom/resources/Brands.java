@@ -18,11 +18,13 @@ import org.divya.showroom.services.BrandsService;
 @Path("/showroom")
 public class Brands {
 	
+	BrandsService service = new BrandsService();
+	
 	@GET
 	@Path("/brands")
 	@Produces(MediaType.TEXT_PLAIN)
-	public List<Brands> getBrands() {
-		List<Brands> list = new BrandsService().getBrands();
+	public List<BrandEntity> getBrands() {
+		List<BrandEntity> list = service.getBrands();
 		return list;
 	}
 
@@ -30,7 +32,7 @@ public class Brands {
 	@Path("/brands")
 	@Consumes(MediaType.TEXT_PLAIN)
 	public void postBrands(BrandEntity brand) {
-		new BrandsService().addBrand(brand);
+		service.addBrand(brand);
 	}
 	
 	@PUT
@@ -38,14 +40,14 @@ public class Brands {
 	@Consumes(MediaType.TEXT_PLAIN)
 	public void putBrands(@PathParam("brandId") int brandId, BrandEntity updatedBrand) {
 		updatedBrand.setBrandId(brandId);
-		new BrandsService().updateBrand(updatedBrand);
+		service.updateBrand(updatedBrand);
 	}
 	
 	@DELETE
 	@Path("/brands/{brandId}")
 	@Consumes(MediaType.TEXT_PLAIN)
-	public void deleteBrands(@PathParam("brandId") String brandId) {
-		new BrandsService().deleteBrand();
+	public void deleteBrands(@PathParam("brandId") int brandId) {
+		service.deleteBrand(brandId);
 	}
 
 }
