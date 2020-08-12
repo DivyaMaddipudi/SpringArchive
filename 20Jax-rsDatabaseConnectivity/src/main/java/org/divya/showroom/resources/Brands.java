@@ -22,7 +22,7 @@ public class Brands {
 	
 	@GET
 	@Path("/brands")
-	@Produces(MediaType.APPLICATION_XML)
+	@Produces(MediaType.APPLICATION_JSON)
 	public List<BrandEntity> getBrands() {
 		List<BrandEntity> list = service.getBrands();
 		return list;
@@ -30,14 +30,14 @@ public class Brands {
 
 	@POST
 	@Path("/brands")
-	@Consumes(MediaType.APPLICATION_XML)
+	@Consumes(MediaType.APPLICATION_JSON)
 	public void postBrands(BrandEntity brand) {
 		service.addBrand(brand);
 	}
 	
 	@PUT
 	@Path("/brands/{brandId}")
-	@Consumes(MediaType.APPLICATION_XML)
+	@Consumes(MediaType.APPLICATION_JSON)
 	public void putBrands(@PathParam("brandId") int brandId, BrandEntity updatedBrand) {
 		updatedBrand.setBrandId(brandId);
 		service.updateBrand(updatedBrand);
