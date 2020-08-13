@@ -12,15 +12,17 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import org.divya.showroom.hibernate.entity.BrandEntity;
+import org.divya.showroom.hibernate.entity.ProductEntity;
 import org.divya.showroom.services.BrandsService;
+import org.divya.showroom.services.ProductsService;
 
-@Path("/showroom")
+@Path("/showroom/brands")
 public class Brands {
 	
 	BrandsService service = new BrandsService();
+	ProductsService productService = new ProductsService();
 	
 	@GET
-	@Path("/brands")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<BrandEntity> getBrands() {
 		List<BrandEntity> list = service.getBrands();
@@ -28,14 +30,13 @@ public class Brands {
 	}
 	
 	@POST
-	@Path("/brands")
 	@Produces(MediaType.APPLICATION_JSON)
 	public void postBrands(BrandEntity brand) {
 		service.addBrand(brand);
 	}
 
 	@PUT
-	@Path("/brands/{brandId}")
+	@Path("/{brandId}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public void putBrands(@PathParam("brandId") int brandId, BrandEntity updatedBrand) {
 		updatedBrand.setBrandId(brandId);
@@ -43,10 +44,18 @@ public class Brands {
 	}
 	
 	@DELETE
-	@Path("/brands/{brandId}")
+	@Path("/{brandId}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public void deleteBrands(@PathParam("brandId") int brandId) {
 		service.deleteBrand(brandId);
+	}
+	
+	@GET
+	@Path("/{brandId}/products")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<ProductEntity> getProductsByBrand(@PathParam("brandId") int brandId) {
+		List<ProductEntity> productlist = productService.getProductsByBrand(brandId);
+		return productlist;
 	}
 	
 	
