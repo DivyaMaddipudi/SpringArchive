@@ -2,6 +2,7 @@ package org.divya.hibernate.DAO;
 
 import java.util.List;
 
+import org.divya.showroom.hibernate.entity.BrandEntity;
 import org.divya.showroom.hibernate.entity.ProductEntity;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -12,6 +13,7 @@ public class ProductsDAO {
 	SessionFactory factory = new Configuration()
 								.configure("hibernate.cfg.xml")
 								.addAnnotatedClass(ProductEntity.class)
+								.addAnnotatedClass(BrandEntity.class)
 								.buildSessionFactory();
 
 	public List<ProductEntity> getProductsByBrand(int brandId) {

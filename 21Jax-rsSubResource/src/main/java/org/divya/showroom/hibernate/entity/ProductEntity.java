@@ -3,6 +3,7 @@ package org.divya.showroom.hibernate.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -14,9 +15,10 @@ public class ProductEntity {
 	@Column(name = "productId")
 	private int productId;
 	
-	@ManyToOne
-	@Column(name = "brandId")
-	private int brandId;
+	@ManyToOne(targetEntity = BrandEntity.class)
+	@JoinColumn(name = "brandId")
+	BrandEntity brandEntity;
+	
 	
 	@Column(name = "productsName")
 	private String productsName;
@@ -38,12 +40,15 @@ public class ProductEntity {
 	public void setProductId(int productId) {
 		this.productId = productId;
 	}
-	public int getBrandId() {
-		return brandId;
+	
+	public BrandEntity getBrandEntity() {
+		return brandEntity;
 	}
-	public void setBrandId(int brandId) {
-		this.brandId = brandId;
+
+	public void setBrandEntity(BrandEntity brandEntity) {
+		this.brandEntity = brandEntity;
 	}
+
 	public String getProductsName() {
 		return productsName;
 	}
