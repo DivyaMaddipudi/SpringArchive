@@ -15,4 +15,9 @@ public class ProductsService {
 		return productList;
 	}
 
+	public List<ProductEntity> getProductsByBrandAndCategory(int brandId, String category) {
+		List<ProductEntity> productList = productsDAO.getProductsByBrandAndCategory(brandId, category);
+		return productList;
+	}
+
 }
