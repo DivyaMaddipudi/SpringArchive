@@ -19,20 +19,19 @@ public class Products {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<ProductEntity> getProductsByBrand(@PathParam("brandId") int brandId, @QueryParam("category") String category) {
-		
-		System.out.println(category);
-		System.out.println(brandId);
+	public List<ProductEntity> getProductsByBrand(@PathParam("brandId") int brandId, @QueryParam("category") String category, @QueryParam("start") int start, @QueryParam("end") int end) {
 		
 		List<ProductEntity> productlist;
 		if(category != null) {
 			productlist = productService.getProductsByBrandAndCategory(brandId, category);
-			return productlist;
+		
 		} else {
 			productlist = productService.getProductsByBrand(brandId);
-			return productlist;
+			
 		}
+		if(end > 0) {
+			productlist = productlist.subList(start, end);
+		}
+		return productlist;
 	}
-	
-
 }
