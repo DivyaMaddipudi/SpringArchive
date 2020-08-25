@@ -34,6 +34,15 @@ public class Brands {
 		return list;
 	}
 	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/{brandId}")
+	public BrandEntity getBrand(@PathParam("brandId") int brandId) {
+		System.out.println(brandId + "brand");
+		BrandEntity brand = service.getBrand(brandId);
+		return brand;
+	}
+	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)

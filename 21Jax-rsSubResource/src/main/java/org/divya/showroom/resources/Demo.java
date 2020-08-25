@@ -24,7 +24,8 @@ public class Demo {
 	@GET
 	public String usefulAnnotations(@HeaderParam("HeaderValue") String headerAttrib, @CookieParam("_xsrf") String xsrf) {
 		
-		return "Header Value " + headerAttrib + " Cookie _xsrf value:" + xsrf;
+		return "Hello Jas-rs";
+		//return "Header Value " + headerAttrib + " Cookie _xsrf value:" + xsrf;
 	}
 	
 	@GET
