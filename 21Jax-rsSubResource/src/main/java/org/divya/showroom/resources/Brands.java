@@ -48,8 +48,12 @@ public class Brands {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response postBrands(BrandEntity brand, @Context UriInfo uri) {
 		
-		URI location = uri.getAbsolutePath();
 		service.addBrand(brand);
+		
+//		String ResourceURL = uri.getAbsolutePath().toString() + "/" + brand.getBrandId();
+//		URI location = URI.create(ResourceURL);
+
+		URI location = uri.getAbsolutePathBuilder().path(Integer.toString(brand.getBrandId())).build();
 		return Response.created(location).entity(brand).build();
 				//status(Status.CREATED).entity(brand).build();
 	}
