@@ -1,4 +1,4 @@
-package org.divya.showroom.hibernate.entity;
+package org.divya.showroom.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity(name = "brands")
 @Table(name = "brands")
-public class BrandEntity {
+public class Brand {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,11 +19,11 @@ public class BrandEntity {
 	@Column(name = "brandName")
 	private String brandName;
 	
-	public BrandEntity() {
+	public Brand() {
 		
 	}
 
-	public BrandEntity(int brandId, String brandName) {
+	public Brand(int brandId, String brandName) {
 		this.brandId = brandId;
 		this.brandName = brandName;
 	}

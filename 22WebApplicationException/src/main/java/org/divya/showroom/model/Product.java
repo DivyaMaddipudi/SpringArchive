@@ -1,4 +1,4 @@
-package org.divya.showroom.hibernate.entity;
+package org.divya.showroom.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,16 +11,16 @@ import javax.persistence.Table;
 
 @Entity(name = "products")
 @Table(name = "products")
-public class ProductEntity {
+public class Product {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "productId")
 	private int productId;
 	
-	@ManyToOne(targetEntity = BrandEntity.class)
+	@ManyToOne(targetEntity = Brand.class)
 	@JoinColumn(name = "brandId")
-	BrandEntity brandEntity;
+	Brand brandEntity;
 	
 	
 	@Column(name = "productsName")
@@ -33,7 +33,7 @@ public class ProductEntity {
 	private String cost;
 	
 	
-	public ProductEntity() {
+	public Product() {
 
 	}
 
@@ -44,11 +44,11 @@ public class ProductEntity {
 		this.productId = productId;
 	}
 	
-	public BrandEntity getBrandEntity() {
+	public Brand getBrandEntity() {
 		return brandEntity;
 	}
 
-	public void setBrandEntity(BrandEntity brandEntity) {
+	public void setBrandEntity(Brand brandEntity) {
 		this.brandEntity = brandEntity;
 	}
 

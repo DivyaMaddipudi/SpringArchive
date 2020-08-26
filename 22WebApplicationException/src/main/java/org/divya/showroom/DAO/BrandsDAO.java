@@ -1,7 +1,8 @@
-package org.divya.hibernate.DAO;
+package org.divya.showroom.DAO;
 
 import java.util.List;
-import org.divya.showroom.hibernate.entity.BrandEntity;
+
+import org.divya.showroom.model.Brand;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -11,18 +12,18 @@ public class BrandsDAO {
 	
 	SessionFactory factory = new Configuration()
 								.configure("hibernate.cfg.xml")
-								.addAnnotatedClass(BrandEntity.class)
+								.addAnnotatedClass(Brand.class)
 								.buildSessionFactory();
 	
 
-	public List<BrandEntity> getBrands() {
+	public List<Brand> getBrands() {
 		Session session = factory.getCurrentSession();
 		session.beginTransaction();
-		List<BrandEntity> list = session.createQuery("from brands").getResultList();	
+		List<Brand> list = session.createQuery("from brands").getResultList();	
 		return list;
 	}
 
-	public void addBrand(BrandEntity brand) {
+	public void addBrand(Brand brand) {
 		Session session = factory.getCurrentSession();
 		session.beginTransaction();
 		session.save(brand);
@@ -30,11 +31,11 @@ public class BrandsDAO {
 		
 	}
 
-	public void updateBrand(BrandEntity updatedBrand) {
+	public void updateBrand(Brand updatedBrand) {
 		Session session = factory.getCurrentSession();
 		session.beginTransaction();
 		int id = updatedBrand.getBrandId();
-		BrandEntity brand = session.get(BrandEntity.class, id);
+		Brand brand = session.get(Brand.class, id);
 		brand.setBrandName(updatedBrand.getBrandName());
 		session.getTransaction().commit();
 	}
@@ -43,16 +44,16 @@ public class BrandsDAO {
 		
 		Session session = factory.getCurrentSession();
 		session.beginTransaction();
-		BrandEntity brand = session.get(BrandEntity.class, brandId);
+		Brand brand = session.get(Brand.class, brandId);
 		session.delete(brand);
 		session.getTransaction().commit();
 	}
 
-	public BrandEntity getBrand(int brandId) {
+	public Brand getBrand(int brandId) {
 		Session session = factory.getCurrentSession();
 		session.beginTransaction();
-		BrandEntity brand;
-		brand = session.get(BrandEntity.class, brandId);
+		Brand brand;
+		brand = session.get(Brand.class, brandId);
 		System.out.println(brandId + "dao");
 		return brand;	
 	}

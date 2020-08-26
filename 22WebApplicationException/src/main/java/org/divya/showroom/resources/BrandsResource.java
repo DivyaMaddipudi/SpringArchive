@@ -18,35 +18,35 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriInfo;
 
-import org.divya.showroom.hibernate.entity.BrandEntity;
+import org.divya.showroom.model.Brand;
 import org.divya.showroom.services.BrandsService;
 
 
 @Path("/showroom/brands")
-public class Brands {
+public class BrandsResource {
 	
 	BrandsService service = new BrandsService();
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<BrandEntity> getBrands() {
-		List<BrandEntity> list = service.getBrands();
+	public List<Brand> getBrands() {
+		List<Brand> list = service.getBrands();
 		return list;
 	}
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/{brandId}")
-	public BrandEntity getBrand(@PathParam("brandId") int brandId) {
+	public Brand getBrand(@PathParam("brandId") int brandId) {
 		System.out.println(brandId + "brand");
-		BrandEntity brand = service.getBrand(brandId);
+		Brand brand = service.getBrand(brandId);
 		return brand;
 	}
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response postBrands(BrandEntity brand, @Context UriInfo uri) {
+	public Response postBrands(Brand brand, @Context UriInfo uri) {
 		
 		service.addBrand(brand);
 		
@@ -61,7 +61,7 @@ public class Brands {
 	@PUT
 	@Path("/{brandId}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public void putBrands(@PathParam("brandId") int brandId, BrandEntity updatedBrand) {
+	public void putBrands(@PathParam("brandId") int brandId, Brand updatedBrand) {
 		updatedBrand.setBrandId(brandId);
 		service.updateBrand(updatedBrand);
 	}
@@ -74,8 +74,8 @@ public class Brands {
 	}
 	
 	@Path("/{brandId}/products")
-	public Products productDelegation() {
-		return new Products();
+	public ProductsResource productDelegation() {
+		return new ProductsResource();
 	}
 	
 }

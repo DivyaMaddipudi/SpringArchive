@@ -13,9 +13,10 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
+import org.divya.showroom.model.ErrorPayload;
+
 @Path("/")
-@Produces(MediaType.TEXT_PLAIN)
-public class Demo {
+public class DemoResource {
 	
 	@Context
 	private UriInfo uriInfo;
@@ -24,14 +25,17 @@ public class Demo {
 	private ServletContext servletContext;
 	
 	@GET
+	@Produces(MediaType.TEXT_PLAIN)
 	public String usefulAnnotations() {
 		return "Hello Jas-rs";
 	}
 	
 	@GET
 	@Path("demo")
+	@Produces({MediaType.TEXT_PLAIN, MediaType.APPLICATION_JSON})
 	public String contextDemo(@HeaderParam("header") String header) throws Exception {
-		Response response = Response.status(404).entity("The value of custom header not found").build();
+		ErrorPayload error = new ErrorPayload(404, "The value of custom header not found");
+		Response response = Response.status(404).entity(error).build();
 		if(header == null) {
 			throw new WebApplicationException(response);
 		}
