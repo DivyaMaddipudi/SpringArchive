@@ -4,6 +4,7 @@ import javax.servlet.ServletContext;
 import javax.ws.rs.CookieParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.HeaderParam;
+import javax.ws.rs.NotFoundException;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
@@ -34,10 +35,9 @@ public class DemoResource {
 	@Path("demo")
 	@Produces({MediaType.TEXT_PLAIN, MediaType.APPLICATION_JSON})
 	public String contextDemo(@HeaderParam("header") String header) throws Exception {
-		ErrorPayload error = new ErrorPayload(404, "The value of custom header not found");
-		Response response = Response.status(404).entity(error).build();
+	
 		if(header == null) {
-			throw new WebApplicationException(response);
+			throw new NotFoundException();
 		}
 		return "The value of custom header is " + header;
 	}
