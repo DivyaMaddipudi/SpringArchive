@@ -36,13 +36,29 @@ public class BrandsResource {
 		return list;
 	}
 	
+	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/{brandId}")
 	public Brand getBrand(@PathParam("brandId") int brandId, @Context UriInfo uri) {
 		Link self = new Link(uri.getAbsolutePath().toString(), "self");
-		Link products = new Link(uri.getAbsolutePathBuilder().path("products").build().toString(), "products");
+		
+		//Link products = new Link(uri.getAbsolutePathBuilder().path("products").build().toString(), "products");
+		
+		String productsUri = uri.getBaseUriBuilder().path(ProductsResource.class)
+								.path(ProductsResource.class, "getProductsByBrand")
+								.resolveTemplate("brandId", brandId)
+								.toString();
+		
+		Link products = new Link(productsUri, "products");
+		
 		Brand brand = service.getBrand(brandId);
+		
+//
+//		String productsUri = uri.getBaseUriBuilder().path(ProductsResource.class)
+//								.toString();
+//		System.out.println(productsUri);
+//		
 		List<Link> links = new ArrayList<>();
 		links.add(self);
 		links.add(products);

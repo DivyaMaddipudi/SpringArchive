@@ -33,7 +33,7 @@ public class BrandsService {
 
 	public Brand getBrand(int brandId) {
 		Brand brand = DAO.getBrand(brandId);
-		System.out.println(brandId + "serv");
+		System.out.println("sev" + brandId);
 		return brand;
 	}
 

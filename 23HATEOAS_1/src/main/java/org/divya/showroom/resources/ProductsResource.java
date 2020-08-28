@@ -12,12 +12,13 @@ import javax.ws.rs.core.MediaType;
 import org.divya.showroom.model.Product;
 import org.divya.showroom.services.ProductsService;
 
-//@Path("/showroom/brands")
+@Path("/showroom/brands")
 public class ProductsResource {
 	
 	ProductsService productService = new ProductsService();
 	
 	@GET
+	@Path("/{brandId}/products")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Product> getProductsByBrand(@PathParam("brandId") int brandId, @QueryParam("category") String category, @QueryParam("start") int start, @QueryParam("end") int end) {
 		

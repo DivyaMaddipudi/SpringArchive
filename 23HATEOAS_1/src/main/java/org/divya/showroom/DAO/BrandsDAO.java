@@ -50,11 +50,12 @@ public class BrandsDAO {
 	}
 
 	public Brand getBrand(int brandId) {
+		
 		Session session = factory.getCurrentSession();
 		session.beginTransaction();
 		Brand brand;
 		brand = session.get(Brand.class, brandId);
-		System.out.println(brandId + "dao");
+		System.out.println("dao" + brandId + " " + brand.getBrandId() + brand.getBrandName());
 		return brand;	
 	}
 }
