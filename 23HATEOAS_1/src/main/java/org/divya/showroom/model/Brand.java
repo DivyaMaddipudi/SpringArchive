@@ -1,5 +1,7 @@
 package org.divya.showroom.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,7 +24,7 @@ public class Brand {
 	
 	
 	@Transient
-	private Link links;
+	private List<Link> links;
 	
 
 	public Brand() {
@@ -49,13 +51,13 @@ public class Brand {
 	public void setBrandName(String brandName) {
 		this.brandName = brandName;
 	}
-	
-	
-	public Link getLinks() {
+
+	public List<Link> getLinks() {
 		return links;
 	}
 
-	public void setLinks(Link links) {
+	public void setLinks(List<Link> links) {
 		this.links = links;
 	}
+	
 }

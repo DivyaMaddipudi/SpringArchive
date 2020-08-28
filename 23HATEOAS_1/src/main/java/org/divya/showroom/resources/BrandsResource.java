@@ -2,6 +2,7 @@ package org.divya.showroom.resources;
 
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
@@ -39,10 +40,13 @@ public class BrandsResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/{brandId}")
 	public Brand getBrand(@PathParam("brandId") int brandId, @Context UriInfo uri) {
-		Link link = new Link(uri.getAbsolutePath().toString(), "self");
-		
+		Link self = new Link(uri.getAbsolutePath().toString(), "self");
+		Link products = new Link(uri.getAbsolutePathBuilder().path("products").build().toString(), "products");
 		Brand brand = service.getBrand(brandId);
-		brand.setLinks(link);
+		List<Link> links = new ArrayList<>();
+		links.add(self);
+		links.add(products);
+		brand.setLinks(links);
 		return brand;
 	}
 	
