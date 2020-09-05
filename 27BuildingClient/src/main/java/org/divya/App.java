@@ -15,7 +15,9 @@ public class App {
 	@Produces(MediaType.TEXT_PLAIN)
 	public String demo() {
 		Client client = ClientBuilder.newClient();
-		Response response = client.target("http://localhost:8082/23HATEOAS_1/showroom/brands/6").request().get();
-		return response.toString();
+		String response = client.target("http://localhost:8082/23HATEOAS_1/showroom/brands")
+							.request(MediaType.APPLICATION_JSON)
+							.get(String.class);
+		return response;
 	}
 }
