@@ -11,12 +11,13 @@ import javax.ws.rs.core.MediaType;
 @Path("/demo/{id}")
 
 public class App {
-	@QueryParam("x") String x;
-	@PathParam("id") String id;
+	//@QueryParam("x") String x;
+	//@PathParam("id") String id;
 	
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
-	public String demo() {
-		return "The value of x  is " + x + " || The value of path param is " + id;
+	public String demo(@QueryParam("code") Currency currency) {
+		//return "The value of x  is " + x + " || The value of path param is " + id;
+		return "The code of currency is : " + currency;
 	}
 }
