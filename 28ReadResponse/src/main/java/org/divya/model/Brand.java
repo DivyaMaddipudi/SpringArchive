@@ -1,10 +1,18 @@
 package org.divya.model;
 
+import java.util.Arrays;
+
 public class Brand {
 	private int brandId;
 	private String brandName;
+	private Link[] links;
 	
 	public Brand() {}
+	
+	public Brand(String brandName) {
+		super();
+		this.brandName = brandName;
+	}
 	
 	public Brand(int brandId, String brandName) {
 		super();
@@ -12,9 +20,11 @@ public class Brand {
 		this.brandName = brandName;
 	}
 
-	public Brand(String brandName) {
+	public Brand(int brandId, String brandName, Link[] links) {
 		super();
+		this.brandId = brandId;
 		this.brandName = brandName;
+		this.links = links;
 	}
 
 	public String getBrandName() {
@@ -33,8 +43,21 @@ public class Brand {
 		this.brandId = brandId;
 	}
 
+	public Link[] getLinks() {
+		return links;
+	}
+
+	public void setLinks(Link[] links) {
+		this.links = links;
+	}
+
 	@Override
 	public String toString() {
+		return "Brand [brandId=" + brandId + ", brandName=" + brandName + ", links=" + Arrays.toString(links) + "]";
+	}
+
+	
+	public String displayBrand() {
 		return "Brand [brandId=" + brandId + ", brandName=" + brandName + "]";
 	}
 	

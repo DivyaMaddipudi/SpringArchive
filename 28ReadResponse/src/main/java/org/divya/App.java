@@ -18,11 +18,27 @@ public class App {
 	
 	public static void main(String[] args) {
 		
-		Brand[] response = baseBrandURL.request(MediaType.APPLICATION_JSON)
+		/*Brand[] response = baseBrandURL.request(MediaType.APPLICATION_JSON)
 									   .get(Brand[].class);
 		
 		for(Brand brand: response) {
 			System.out.println(brand);
 		}
+		*/
+		
+		/*Brand specificBrand = brandURL
+								.resolveTemplate("brandId", "5")
+								.request()
+								.get(Brand.class);
+		
+		System.out.println(specificBrand);
+		*/
+		
+		Response response = baseBrandURL
+						.request()
+						.post(Entity.json(new Brand("New brand 100")));
+		
+		System.out.println(response.readEntity(Brand.class).displayBrand());
+		
 	}
 }
