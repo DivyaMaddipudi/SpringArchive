@@ -26,6 +26,8 @@ public class App {
 		}
 		*/
 		
+		//GET
+		
 		/*Brand specificBrand = brandURL
 								.resolveTemplate("brandId", "5")
 								.request()
@@ -34,11 +36,33 @@ public class App {
 		System.out.println(specificBrand);
 		*/
 		
-		Response response = baseBrandURL
+		//POST
+		
+		/*Response response = brandURL
 						.request()
 						.post(Entity.json(new Brand("New brand 100")));
 		
 		System.out.println(response.readEntity(Brand.class).displayBrand());
+		*/
+		
+		//PUT
+		
+		/*Response response = brandURL
+							.resolveTemplate("brandId", "7")
+							.request(MediaType.APPLICATION_JSON)
+							.put(Entity.json(new Brand("Yamaha")));
+		
+		System.out.println(response.getStatus());
+		*/
+		
+		//DELETE
+		
+		Response response = brandURL
+							.resolveTemplate("brandId", "17")
+							.request()
+							.delete();
+		System.out.println(response.getStatus());
+		
 		
 	}
 }
