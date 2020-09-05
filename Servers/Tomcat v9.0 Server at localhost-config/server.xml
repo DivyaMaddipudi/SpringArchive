@@ -153,7 +153,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="20Jax-rsDatabaseConnectivity" path="/20Jax-rsDatabaseConnectivity" reloadable="true" source="org.eclipse.jst.jee.server:20Jax-rsDatabaseConnectivity"/><Context docBase="21Jax-rsSubResource" path="/19ResourceBasedURI" reloadable="true" source="org.eclipse.jst.jee.server:21Jax-rsSubResource"/><Context docBase="22WebApplicationException" path="/21subResource" reloadable="true" source="org.eclipse.jst.jee.server:22WebApplicationException"/><Context docBase="23HATEOAS_1" path="/23HATEOAS_1" reloadable="true" source="org.eclipse.jst.jee.server:23HATEOAS_1"/><Context docBase="24NewMavenProject" path="/NewMavenProject" reloadable="true" source="org.eclipse.jst.j2ee.server:24NewMavenProject"/><Context docBase="25AlternateAppSetup" path="/25AlternateAppSetup" reloadable="true" source="org.eclipse.jst.j2ee.server:25AlternateAppSetup"/><Context docBase="26MessgeBodyWriterImplementation" path="/26MessgeBodyWriterImplementation" reloadable="true" source="org.eclipse.jst.j2ee.server:26MessgeBodyWriterImplementation"/></Host>
+      <Context docBase="23HATEOAS_1" path="/23HATEOAS_1" reloadable="true" source="org.eclipse.jst.jee.server:23HATEOAS_1"/><Context docBase="27BuildingClient" path="/27BuildingClient" reloadable="true" source="org.eclipse.jst.j2ee.server:27BuildingClient"/></Host>
     </Engine>
   </Service>
 </Server>
