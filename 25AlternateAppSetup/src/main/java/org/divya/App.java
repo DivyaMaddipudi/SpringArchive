@@ -8,8 +8,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
-@Path("/demo/{id}")
-
+// when path param is used
+//@Path("/demo/{id}") 
+@Path("/demo")
 public class App {
 	//@QueryParam("x") String x;
 	//@PathParam("id") String id;
